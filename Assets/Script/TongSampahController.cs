@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TongSampahController : MonoBehaviour {
-
+	//public GameObject ballprefab;
 	public float speed = 0.0f;
 
 	// Use this for initialization
@@ -28,6 +28,14 @@ public class TongSampahController : MonoBehaviour {
 	private void GoRight(){
 		transform.Translate(Vector3.right * speed* Time.deltaTime);
 	}
+	void OnCollisionEnter2D(Collision2D coll)
+    {
+        // If a missile hits this object
+        if (coll.transform.tag == "Respawn")
+        {
+            Debug.Log("HIT!");
+        }
+    }
 }
 
 /*
